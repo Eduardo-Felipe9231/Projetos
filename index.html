@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nicoly ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ESTRELAS -->
+
+    <div class="estrelas">
+
+        <div class="estrela" style="top:10%;left:15%"></div>
+        <div class="estrela" style="top:20%;left:80%"></div>
+        <div class="estrela" style="top:15%;left:50%"></div>
+        <div class="estrela" style="top:30%;left:25%"></div>
+        <div class="estrela" style="top:45%;left:70%"></div>
+        <div class="estrela" style="top:60%;left:10%"></div>
+        <div class="estrela" style="top:75%;left:40%"></div>
+        <div class="estrela" style="top:65%;left:85%"></div>
+        <div class="estrela" style="top:35%;left:95%"></div>
+        <div class="estrela" style="top:80%;left:60%"></div>
+
+    </div>
+
+    <!-- LANTERNAS -->
+
+    <div class="lanternas">
+
+        <div class="lanterna" style="left:10%; animation-duration:18s;"></div>
+        <div class="lanterna" style="left:25%; animation-duration:15s;"></div>
+        <div class="lanterna" style="left:40%; animation-duration:20s;"></div>
+        <div class="lanterna" style="left:55%; animation-duration:17s;"></div>
+        <div class="lanterna" style="left:70%; animation-duration:22s;"></div>
+        <div class="lanterna" style="left:85%; animation-duration:19s;"></div>
+
+    </div>
+
+<div class="petalas">
+
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+
+</div>
+
+    <!-- TELA INICIAL -->
+
+    <section class="hero">
+
+        <h1>Nicoly ❤️</h1>
+
+        <div class="polaroid">
+            <img src="WhatsApp Image 2026-06-05 at 09.40.50.jpeg" alt="Eu e Nicoly">
+            <p>Nossa foto favorita ❤️</p>
+        </div>
+
+        <p>
+            Eu poderia ter escrito apenas uma mensagem.
+            <br>
+            Mas você merece algo muito mais especial.
+        </p>
+
+        <button class="botao" onclick="mostrarMensagem()">
+            Clique aqui ❤️
+        </button>
+
+    </section>
+
+    <!-- CONTADOR -->
+
+    <section class="secao">
+
+        <div class="card">
+
+            <h2>Nosso Tempo Juntos ❤️</h2>
+
+            <p id="contador"></p>
+
+        </div>
+
+    </section>
+
+    <!-- CARTA -->
+
+    <section class="secao">
+
+        <div class="carta">
+
+            <h2>Uma carta para você ❤️</h2>
+
+    <p id="texto-carta"></p>
+
+</div></p>
+            
+
+        </div>
+
+    </section>
+
+<section class="secao">
+
+    <div class="timeline">
+
+        <h2>Nossa História ❤️</h2>
+
+        <div class="evento">
+            <span>❤️ 04/05/2026</span>
+            <p>O dia em que nossa história começou.</p>
+        </div>
+
+        <div class="evento">
+            <span>🥰 Primeiro mês</span>
+            <p>30 dias de risadas, carinho e momentos especiais.</p>
+        </div>
+
+        <div class="evento">
+            <span>✨ Hoje</span>
+            <p>E ainda estamos escrevendo nossa história.</p>
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- GALERIA -->
+
+    <section class="secao">
+
+        <div class="card">
+
+            <h2>Nossas Memórias Até Agora❤️</h2>
+
+            <div class="galeria">
+
+                <div class="foto-card foto1">
+                    <img src="WhatsApp Image 2026-06-11 at 20.43.49.jpeg" alt="">
+                </div>
+
+                <div class="foto-card foto2">
+                    <img src="WhatsApp Image 2026-06-11 at 20.44.58.jpeg" alt="">
+                </div>
+
+                <div class="foto-card foto3">
+                    <img src="WhatsApp Image 2026-06-11 at 20.44.59.jpeg" alt="">
+                </div>
+
+                <div class="foto-card foto4">
+                    <img src="WhatsApp Image 2026-06-11 at 20.43.49 (1).jpeg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ENCERRAMENTO -->
+
+    <section class="hero">
+
+        <h1>Eu te amo, Nicoly ❤️</h1>
+
+        <p>
+            E este site nunca será tão bonito quanto
+            o sorriso que me fez querer criá-lo.
+        </p>
+
+    </section>
+
+    <script>
+
+function mostrarMensagem(){
+    alert("Eu te amo, Nicoly ❤️");
+}
+
+/* CONTADOR */
+
+const dataNamoro = new Date("2026-04-12")
+const hoje = new Date();
+
+const diferenca = hoje - dataNamoro;
+
+const dias = Math.floor(
+    diferenca / (1000 * 60 * 60 * 24)
+);
+
+document.getElementById("contador").innerHTML =
+`
+❤️ Já fazem <strong>${dias} dias</strong>
+desde que nossa história começou. ❤️
+
+<br><br>
+
+E cada um deles valeu a pena.
+`;
+
+/* CARTA COM EFEITO DE DIGITAÇÃO */
+
+const carta = `Nicoly,
+
+Eu poderia ter te dado um presente comum,
+mas achei que você merecia algo feito por mim.
+
+Escrever cartas não é meu forte,
+então pensei: por que não te dar um site? haha
+
+Então usei aquilo que eu sei fazer e transformei
+em uma forma de te lembrar o quanto você é importante para mim.
+
+Desde o dia 12 de abril,
+meus dias ficaram mais leves,
+mais felizes e mais completos.
+
+Você é uma das melhores coisas
+que já aconteceram na minha vida.
+
+Ainda temos muito para viver,
+muitos lugares para conhecer,
+muitas fotos para tirar,
+muitos lanches para comer
+e muitos desenhos para assistir kkk.
+
+E eu quero viver tudo isso com você.
+
+(de preferência, abraçadinhos ❤️)
+
+Eu te amo.
+
+— Dudu ❤️`;
+
+let indice = 0;
+
+function escreverCarta(){
+
+    if(indice < carta.length){
+
+        document.getElementById("texto-carta").textContent += carta.charAt(indice);
+
+        indice++;
+
+        setTimeout(escreverCarta, 35);
+
+    }
+
+}
+
+window.addEventListener("load", escreverCarta);
+
+</script>
+    
+<section class="secao">
+
+    <div class="card">
+
+        <h2>10 coisas que eu amo em você ❤️</h2>
+
+        <div class="motivos">
+
+            <div class="motivo">😊 Seu sorriso</div>
+
+            <div class="motivo">😂 Sua risada</div>
+
+            <div class="motivo">💇‍♀️ Seu cabelo</div>
+
+            <div class="motivo">🤣 O jeito que você me faz rir</div>
+
+            <div class="motivo">❤️ O jeito que você me faz bem</div>
+
+            <div class="motivo">✨ Sua personalidade</div>
+
+            <div class="motivo">😍 Sua beleza</div>
+
+            <div class="motivo">😈 Seu humor negro</div>
+
+            <div class="motivo">🤗 Como me sinto quando estou com você</div>
+
+            <div class="motivo">💖 <p class="destaque">
+Acima da sua beleza, do seu sorriso e de todas as outras coisas que eu amo em você,
+o que mais admiro é a sua alma, porque nela eu vejo o amor de Cristo refletido em quem você é. ❤️
+</p></div>
+
+        </div>
+
+    </div>
+
+</section>
+</body>
+</html>
