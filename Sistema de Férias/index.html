@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Controle de Férias | Setor SE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Ícones -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+
+            <div>
+                <h2>Férias SE</h2>
+                <span>Controle de férias</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <button class="menu-item active" data-page="dashboard">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="menu-item" data-page="calendario">
+                <i class="fa-solid fa-calendar"></i>
+                <span>Calendário</span>
+            </button>
+
+            <button class="menu-item" data-page="funcionarios">
+                <i class="fa-solid fa-users"></i>
+                <span>Funcionários</span>
+            </button>
+
+            <button class="menu-item" data-page="ferias">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                <span>Férias</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <span>Setor</span>
+            <strong>SE</strong>
+        </div>
+
+    </aside>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">
+                    Visão geral das férias do setor
+                </p>
+            </div>
+
+            <div class="topbar-date">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="currentDate"></span>
+            </div>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="page active-page" id="dashboard">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Total de funcionários</span>
+                        <strong id="totalFuncionarios">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Trabalhando</span>
+                        <strong id="totalTrabalhando">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon yellow">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Férias programadas</span>
+                        <strong id="totalProgramadas">0</strong>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+
+                    <div>
+                        <span>Em férias</span>
+                        <strong id="totalEmFerias">0</strong>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ALERTAS -->
+
+            <div id="alertsContainer"></div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- PRÓXIMAS FÉRIAS -->
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Próximas férias</h2>
+                            <p>Quem será o próximo a sair?</p>
+                        </div>
+
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+
+                    <div id="upcomingVacations" class="vacation-list">
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <div>
+                            <h2>Status do setor</h2>
+                            <p>Situação atual da equipe</p>
+                        </div>
+
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+
+                    <div class="status-chart">
+
+                        <div class="chart-circle">
+                            <strong id="chartTotal">0</strong>
+                            <span>pessoas</span>
+                        </div>
+
+                        <div class="chart-legend">
+
+                            <div>
+                                <span class="legend-dot green-dot"></span>
+                                Trabalhando
+                                <strong id="legendWorking">0</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot yellow-dot"></span>
+                                Programadas
+                                <strong id="legendScheduled">0</strong>
+                            </div>
+
+                            <div>
+                                <span class="legend-dot red-dot"></span>
+                                Em férias
+                                <strong id="legendVacation">0</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EQUIPE -->
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Equipe SE</h2>
+                        <p>Status atual dos funcionários</p>
+                    </div>
+
+                    <button class="primary-button" onclick="openVacationModal()">
+                        <i class="fa-solid fa-plus"></i>
+                        Cadastrar férias
+                    </button>
+
+                </div>
+
+                <div class="team-grid" id="teamDashboard">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CALENDÁRIO ================= -->
+
+        <section class="page" id="calendario">
+
+            <div class="card">
+
+                <div class="calendar-header">
+
+                    <button class="icon-button" onclick="changeMonth(-1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <h2 id="calendarTitle"></h2>
+
+                    <button class="icon-button" onclick="changeMonth(1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="calendar-weekdays">
+
+                    <span>Dom</span>
+                    <span>Seg</span>
+                    <span>Ter</span>
+                    <span>Qua</span>
+                    <span>Qui</span>
+                    <span>Sex</span>
+                    <span>Sáb</span>
+
+                </div>
+
+
+                <div class="calendar-grid" id="calendarGrid">
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Legenda</h2>
+                    </div>
+
+                </div>
+
+                <div class="legend-row">
+
+                    <div>
+                        <span class="legend-box vacation-box"></span>
+                        Férias
+                    </div>
+
+                    <div>
+                        <span class="legend-box today-box"></span>
+                        Hoje
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FUNCIONÁRIOS ================= -->
+
+        <section class="page" id="funcionarios">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Funcionários</h2>
+                    <p>Equipe do setor SE</p>
+                </div>
+
+            </div>
+
+            <div class="employees-grid" id="employeesGrid">
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FÉRIAS ================= -->
+
+        <section class="page" id="ferias">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Controle de férias</h2>
+                    <p>Todos os períodos cadastrados</p>
+                </div>
+
+                <button class="primary-button" onclick="openVacationModal()">
+                    <i class="fa-solid fa-plus"></i>
+                    Nova férias
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Funcionário</th>
+                                <th>Início</th>
+                                <th>Fim</th>
+                                <th>Dias</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="vacationsTable">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- MODAL DE FÉRIAS -->
+
+    <div class="modal-overlay" id="vacationModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2 id="modalTitle">Cadastrar férias</h2>
+                    <p>Informe o período de férias</p>
+                </div>
+
+                <button class="close-modal" onclick="closeVacationModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="vacationForm">
+
+                <input type="hidden" id="vacationId">
+
+
+                <div class="form-group">
+
+                    <label>Funcionário</label>
+
+                    <select id="employeeSelect" required>
+
+                        <option value="">
+                            Selecione um funcionário
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Data de início</label>
+
+                        <input
+                            type="date"
+                            id="startDate"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Data de término</label>
+
+                        <input
+                            type="date"
+                            id="endDate"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div id="conflictWarning" class="conflict-warning hidden">
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        onclick="closeVacationModal()"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Salvar férias
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
